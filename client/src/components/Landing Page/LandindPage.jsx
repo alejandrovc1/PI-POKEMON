@@ -5,11 +5,9 @@ import videoPokemon from "./videoPokemon.mp4";
 
 function LandingPage() {
 
-
-
     return (
         <div className='myvideo'>
-            <p className="{styles.title}">Welcome to Pokemon's Finder!</p>
+            <h1 className={styles.title}>Welcome to Pokemon's Finder!</h1>
             <Link to="/home">
                 <button className={styles.button}>Enter to site</button>
             </Link>
