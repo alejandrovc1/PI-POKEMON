@@ -7,7 +7,7 @@ function LandingPage() {
 
     return (
         <div className='myvideo'>
-            <h1 className={styles.title}>Welcome to Pokemon's Finder!</h1>
+            <h1 className={styles.title}>Welcome to Pokemon App!</h1>
             <Link to="/home">
                 <button className={styles.button}>Enter to site</button>
             </Link>
