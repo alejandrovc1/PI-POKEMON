@@ -18,7 +18,7 @@ const getApiInfo = async () => {
             pokemones.push(...auxPokemones);
             url = pokemonesApi.next;
         } while (url != null && pokemones.length < 40); //ACA PUEDO LIMITARLOS A LOS QUE QUIERA TRAER
-
+        // console.log(pokemones);
         let pokesWithData = await Promise.all(pokemones.map(async e => {
             let pokemon = await axios.get(e.url);
             return {
@@ -31,7 +31,7 @@ const getApiInfo = async () => {
                         img: `https://typedex.app/images/ui/types/dark/${e.type.name}.svg`,
                     })
                 }),
-                life: pokemon.data.stats[0].base_stat,
+                hp: pokemon.data.stats[0].base_stat,
                 attack: pokemon.data.stats[1].base_stat,
                 defense: pokemon.data.stats[2].base_stat,
                 speed: pokemon.data.stats[5].base_stat,
@@ -94,7 +94,7 @@ const getDbInfo = async () => {
 const getAllPokemon = async () => {
     const apiInfo = await getApiInfo();
     const dbInfo = await getDbInfo();
-    const allPokemon = apiInfo.concat(dbInfo);
+    const allPokemon = [...apiInfo,...dbInfo];
     return allPokemon;
 };
 

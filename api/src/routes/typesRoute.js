@@ -1,6 +1,6 @@
 const axios = require('axios');
 const express = require('express');
-const {Type} = require('../db');
+const { Type } = require('../db');
 
 const router = express.Router();
 

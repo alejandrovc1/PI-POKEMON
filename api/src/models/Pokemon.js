@@ -7,13 +7,14 @@ module.exports = (sequelize) => {
     id: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
-      primaryKey: true
+      allowNull: false,
+      primaryKey: true,
     },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    life: {
+    hp: {
       type: DataTypes.STRING,
     },
     attack: {
@@ -31,12 +32,16 @@ module.exports = (sequelize) => {
     weight: {
       type: DataTypes.STRING,
     },
-    origin: {
-      type: DataTypes.STRING,
-    },
     img: {
       type: DataTypes.STRING,
-      defaultValue: "https://static.wikia.nocookie.net/eswikia/images/d/df/Pok%C3%A9mon.png/revision/latest/scale-to-width-down/980?cb=20170308220152"
-    }
-  }, { timestaps: false });
+    },
+    createdInBd: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true,
+    },
+  }, {
+    createdAt: false,
+    updatedAt: false,
+  })
 };
